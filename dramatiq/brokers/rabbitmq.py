@@ -273,7 +273,7 @@ class RabbitmqBroker(Broker):
 
     def _build_queue_arguments(self, queue_name):
         arguments = {
-            "x-dead-letter-exchange": "",
+            "x-dead-letter-exchange": xq_name(queue_name),
             "x-dead-letter-routing-key": xq_name(queue_name),
         }
         if self.max_priority:
